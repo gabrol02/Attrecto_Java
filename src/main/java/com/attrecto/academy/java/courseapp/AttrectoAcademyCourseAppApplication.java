@@ -1,4 +1,4 @@
-package com.attrecto.academy.java.course;
+package com.attrecto.academy.java.courseapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
