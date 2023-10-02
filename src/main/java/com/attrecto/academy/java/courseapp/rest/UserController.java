@@ -1,5 +1,5 @@
 package com.attrecto.academy.java.courseapp.rest;
-//módosítva
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
