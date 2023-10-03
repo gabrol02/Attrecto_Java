@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.attrecto.academy.java.courseapp.model.dto.CourseDto;
-import com.attrecto.academy.java.courseapp.model.dto.CreateCourseDto;
+import com.attrecto.academy.java.courseapp.model.dto.CreateUserDto;
 import com.attrecto.academy.java.courseapp.model.dto.UserDto;
 import com.attrecto.academy.java.courseapp.service.UserService;
 
@@ -38,7 +37,7 @@ public class UserController {
 	@Operation(summary = "List all user" ,security = {@SecurityRequirement(name = "token")})
 	
 	public List<UserDto> getAllUser(){
-		return userService.listAllUser();
+		return userService.listAllUsers();
 	}
 	
 	@GetMapping(value= "/{id}")
@@ -52,14 +51,14 @@ public class UserController {
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Create a new user" ,security = {@SecurityRequirement(name = "token")})
 	public UserDto createCourse(@Valid @RequestBody CreateUserDto createUserDto) {
-		return UserService.createUser(createUserDto);
+		return userService.createUser(createUserDto);
 	}
 	    
     @PutMapping(value= "/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Update an existing user" ,security = {@SecurityRequirement(name = "token")})
     public UserDto updateUser(@PathVariable final Integer id, @Valid @RequestBody CreateUserDto createUserDto) {
-    	return userService.updateCourse(id, createUserDto);
+    	return userService.updateUser(id, createUserDto);
     }    
     
     @DeleteMapping(value= "/{id}")
