@@ -44,7 +44,7 @@ public class UserController {
 	@ResponseStatus(HttpStatus.OK)
 	@Operation(summary = "Get a user by id" ,security = {@SecurityRequirement(name = "token")})
 	public UserDto getUserById(@PathVariable final Integer id) {
-		return UserService.getCourseById(id);
+		return userService.getCourseById(id);
 	}
 	
 	@PostMapping

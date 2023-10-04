@@ -1,10 +1,6 @@
 package com.attrecto.academy.java.courseapp.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Service;
 
 import com.attrecto.academy.java.courseapp.model.dto.CourseDto;
