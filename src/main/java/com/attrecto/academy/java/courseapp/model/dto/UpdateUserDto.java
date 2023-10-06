@@ -5,14 +5,13 @@ import java.util.Set;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
-public class UserDto extends MinimalUserDto {
+public class UpdateUserDto extends CreateUserDto {
 	@Schema(description = "Id's of the user courses")
-	private Set<MinimalCourseDto> courses = new HashSet<>();
-
-	public Set<MinimalCourseDto> getCourses() {
+	private Set<Integer> courses = new HashSet<>();
+	public Set<Integer> getCourses() {
 		return courses;
 	}
-	public void setCourses(Set<MinimalCourseDto> courses) {
+	public void setCourses(Set<Integer> courses) {
 		this.courses = courses;
 	}
 }
