@@ -1,5 +1,6 @@
 package com.attrecto.academy.java.courseapp.service;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -42,7 +43,12 @@ public class UserService {
 	//Házi feladat
 	
 	public List<UserDto> getUserByName(final Integer id,final String name) {
-		return userRepository.findByNameIgnoreCase(name).stream().map(UserMapper::map).collect(Collectors.toList());
+		
+		 List<UserDto> users = userRepository.findByNameIgnoreCase(name).stream().map(UserMapper::map).collect(Collectors.toList());
+		 //Név majd id szerinti rendezés
+		 users.sort(Comparator.comparing(UserDto::getName).thenComparing(UserDto::getId));
+		 
+		return users;
 	}
 	
 	public UserDto updateUser(int id, UpdateUserDto updateUserDto) {
