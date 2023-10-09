@@ -39,7 +39,12 @@ public class UserService {
 	public UserDto getUserById(final int id) {
 		return UserMapper.map(serviceUtil.findUserById(id));
 	}
-
+	//Házi feladat
+	
+	public List<UserDto> getUserByName(final Integer id,final String name) {
+		return userRepository.findByName(name).stream().map(UserMapper::map).collect(Collectors.toList());
+	}
+	
 	public UserDto updateUser(int id, UpdateUserDto updateUserDto) {
 		Set<Course> courses = updateUserDto.getCourses().stream()
 				.map(courseId -> serviceUtil.findCourseById(courseId)).collect(Collectors.toSet());

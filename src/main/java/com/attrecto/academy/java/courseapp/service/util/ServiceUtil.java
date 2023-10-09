@@ -38,7 +38,18 @@ public class ServiceUtil {
 		}
 		return user.get();
 	}
-
+	
+	//Házi feladat
+	
+	public User findUserByName(String name) {
+		Optional<User> user = userRepository.findByName(name);
+		if(user.isEmpty()) {
+			throw new RuntimeException(String.format("User cannot be found with name: %s", name));
+		}
+		return user.get();
+		
+	}
+	
 	public List<MinimalCourseDto> listUserCourses(User user) {
 		return user.getCourses().stream().map(CourseMapper::mapToMinimal).collect(Collectors.toList());
 	}
