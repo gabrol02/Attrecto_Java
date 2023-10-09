@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.attrecto.academy.java.courseapp.model.dto.CreateUserDto;
 import com.attrecto.academy.java.courseapp.model.dto.UpdateUserDto;
 import com.attrecto.academy.java.courseapp.model.dto.UserDto;
-import com.attrecto.academy.java.courseapp.service.UserDtO;
 import com.attrecto.academy.java.courseapp.service.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;

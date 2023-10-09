@@ -8,5 +8,5 @@ import com.attrecto.academy.java.courseapp.model.User;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-	public Optional<User> findByName(String name);
+	public Optional<User> findByNameIgnoreCase(String name);
 }

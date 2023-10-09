@@ -42,7 +42,7 @@ public class UserService {
 	//Házi feladat
 	
 	public List<UserDto> getUserByName(final Integer id,final String name) {
-		return userRepository.findByName(name).stream().map(UserMapper::map).collect(Collectors.toList());
+		return userRepository.findByNameIgnoreCase(name).stream().map(UserMapper::map).collect(Collectors.toList());
 	}
 	
 	public UserDto updateUser(int id, UpdateUserDto updateUserDto) {

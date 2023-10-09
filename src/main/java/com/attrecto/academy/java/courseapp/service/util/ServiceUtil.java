@@ -42,7 +42,7 @@ public class ServiceUtil {
 	//Házi feladat
 	
 	public User findUserByName(String name) {
-		Optional<User> user = userRepository.findByName(name);
+		Optional<User> user = userRepository.findByNameIgnoreCase(name);
 		if(user.isEmpty()) {
 			throw new RuntimeException(String.format("User cannot be found with name: %s", name));
 		}
