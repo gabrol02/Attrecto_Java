@@ -1,7 +1,6 @@
 package com.attrecto.academy.java.courseapp.rest;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -47,25 +46,21 @@ public class UsersController {
     public UserDto getUserById(@PathVariable final Integer id) {
     	return userService.getUserById(id);
     }
-	
-	//Házi feladat
-	///api/users/{id}/{filter}
 		
-	@GetMapping(value="/{id}/{filter}")
+	@PostMapping(value="/{name}")
 	@ResponseStatus(HttpStatus.OK)
-	@Operation(summary = "Get an user by name" ,security = {@SecurityRequirement(name = "token")})
-		
-	public List<UserDto> getUserById(@PathVariable final Integer id, @PathVariable final String name) {
-		return userService.getUserByName(id, name);
+	@Operation(summary = "Get an users by name" ,security = {@SecurityRequirement(name = "token")})
+	public List<UserDto> getUserByName(@PathVariable final String name) {
+		return userService.getUsersByName(name);
 	}
-
+	
 	@PostMapping
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Create a new user", security = {@SecurityRequirement(name = "token")})
     public UserDto createUser(@Valid @RequestBody final CreateUserDto createUserDto) {
     	return userService.createUser(createUserDto);
     }
-	
+
 	@PutMapping(value= "/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Update an existing user", security = {@SecurityRequirement(name = "token")})
@@ -79,7 +74,5 @@ public class UsersController {
     public void deleteUser(@PathVariable final Integer id) {
     	userService.deleteUser(id);
     }
-	
-	
 
 }
