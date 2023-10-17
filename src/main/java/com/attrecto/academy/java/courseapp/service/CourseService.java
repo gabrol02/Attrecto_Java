@@ -9,6 +9,7 @@ import com.attrecto.academy.java.courseapp.mapper.CourseMapper;
 import com.attrecto.academy.java.courseapp.model.Course;
 import com.attrecto.academy.java.courseapp.model.dto.CourseDto;
 import com.attrecto.academy.java.courseapp.model.dto.CreateCourseDto;
+
 import com.attrecto.academy.java.courseapp.persistence.CourseRepository;
 import com.attrecto.academy.java.courseapp.service.util.ServiceUtil;
 
@@ -36,6 +37,8 @@ public class CourseService {
 		course.setTitle(createCourseDto.getTitle());
 		course.setDescription(createCourseDto.getDescription());
 		course.setUrl(createCourseDto.getUrl());
+		course.setStartDate(createCourseDto.getStartDate());
+		course.setEndDate(createCourseDto.getEndDate());
 		course.setAuthor(serviceUtil.findUserById(createCourseDto.getAuthorId()));
 		course.setStudents(createCourseDto.getStudentIds().stream().map(userId -> serviceUtil.findUserById(userId))
 				.collect(Collectors.toSet()));
@@ -48,6 +51,8 @@ public class CourseService {
 		course.setDescription(updateCourseDto.getDescription());
 		course.setTitle(updateCourseDto.getTitle());
 		course.setUrl(updateCourseDto.getUrl());
+		course.setStartDate(updateCourseDto.getStartDate());
+		course.setEndDate(updateCourseDto.getEndDate());
 		course.setAuthor(serviceUtil.findUserById(updateCourseDto.getAuthorId()));
 		course.setStudents(updateCourseDto.getStudentIds().stream().map(userId -> serviceUtil.findUserById(userId))
 				.collect(Collectors.toSet()));
@@ -60,4 +65,6 @@ public class CourseService {
 
 		courseRepository.deleteById(id);
 	}
+	
+
 }

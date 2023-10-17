@@ -1,5 +1,6 @@
 package com.attrecto.academy.java.courseapp.model;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,6 +21,9 @@ public class Course {
 	private String title;
 	private String description;
 	private String url;
+	private LocalDate startDate;
+	private LocalDate endDate;
+	
 	@ManyToOne
 	private User author;
 	@ManyToMany
@@ -72,5 +76,21 @@ public class Course {
 
 	public void setStudents(Set<User> students) {
 		this.students = students;
+	}
+
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
+	}
+
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
 	}
 }

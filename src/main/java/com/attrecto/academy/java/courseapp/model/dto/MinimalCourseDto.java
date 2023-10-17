@@ -1,7 +1,11 @@
 package com.attrecto.academy.java.courseapp.model.dto;
 
 
+
+import java.time.LocalDate;
+
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import jakarta.validation.constraints.NotBlank;
 
 public class MinimalCourseDto {
@@ -17,7 +21,27 @@ public class MinimalCourseDto {
 	@NotBlank
 	@Schema(description = "URL for the course", example = "https://attrecto.com/academy/course/java")	
 	private String url;
+	@NotBlank
+	@Schema(description = "Start date for the course", example = "2023.04.01")
+	private LocalDate startDate;
+	@NotBlank
+	@Schema(description = "End date for the course", example = "2024.04.01")
+	private LocalDate endDate;
+
+
 	
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
+	}
 	public int getId() {
 		return id;
 	}

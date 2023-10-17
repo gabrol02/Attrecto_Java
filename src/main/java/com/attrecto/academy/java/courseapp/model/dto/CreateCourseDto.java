@@ -1,5 +1,6 @@
 package com.attrecto.academy.java.courseapp.model.dto;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,6 +22,13 @@ public class CreateCourseDto {
 	@NotBlank
 	@Schema(description = "URL for the course", example = "https://attrecto.com/academy/course/java")	
 	private String url;
+	@NotBlank
+	
+	@Schema(description = "Start date for the course", example = "2023.04.01")
+	private LocalDate startDate;
+	@NotBlank
+	@Schema(description = "End date for the course", example = "2024.04.01")
+	private LocalDate endDate;
 	@NotNull
 	@Schema(description = "Id of the of the course author", example = "1")	
 	private Integer authorId;
@@ -55,5 +63,17 @@ public class CreateCourseDto {
 	}
 	public void setStudentIds(Set<Integer> studentIds) {
 		this.studentIds = studentIds;
+	}
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
 	}
 }
