@@ -4,14 +4,19 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Schema
+@ValidDateRange
 public class CreateCourseDto {
 	@Max(100)
+	@Size(min=10,max=100)
 	@NotBlank
 	@Schema(description = "Title of the course", example = "Java course")
 	private String title;
@@ -23,11 +28,12 @@ public class CreateCourseDto {
 	@Schema(description = "URL for the course", example = "https://attrecto.com/academy/course/java")	
 	private String url;
 	@NotBlank
-	
 	@Schema(description = "Start date for the course", example = "2023.04.01")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate startDate;
 	@NotBlank
 	@Schema(description = "End date for the course", example = "2024.04.01")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate endDate;
 	@NotNull
 	@Schema(description = "Id of the of the course author", example = "1")	

@@ -13,7 +13,7 @@ public class CourseDto extends MinimalCourseDto {
 	private Integer authorId;
 	@Schema(description = "List of the course users", example = "user, admin")	
 	private Set<MinimalUserDto> students = new HashSet<>();
-	
+
 	public Integer getAuthorId() {
 		return authorId;
 	}
